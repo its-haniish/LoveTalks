@@ -22,7 +22,7 @@ LoveTalks is a mobile application designed to connect users with professional re
 ## 🔧 Installation & Setup
 1. **Clone the Repository**
    ```sh
-   git clone https://github.com/your-username/lovetalks.git
+   git clone https://github.com/its-haniish/lovetalks.git
    cd lovetalks
    ```
 2. **Install Dependencies**
@@ -43,7 +43,7 @@ LoveTalks is a mobile application designed to connect users with professional re
 We welcome contributions! Feel free to fork, create issues, or submit pull requests.
 
 ## 📞 Contact
-For inquiries, email us at **support@lovetalks.com**
+For inquiries, email us at **info.lovetalks@gmail.com**
 
 ---
 **💖 LoveTalks - Your Personal Relationship Guide 💖**

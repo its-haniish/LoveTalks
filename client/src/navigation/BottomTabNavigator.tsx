@@ -1,9 +1,9 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { HomeScreen, ChatScreen, ProfileScreen } from "../screens";
+import { HomeScreen, ChatScreen, BlogScreen, CallScreen } from "../screens";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { PlatformPressable } from "@react-navigation/elements";
 
-// Define tab navigation
 const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = () => {
@@ -11,26 +11,33 @@ const BottomTabNavigator = () => {
         <Tab.Navigator
             screenOptions={({ route }) => ({
                 tabBarIcon: ({ color, size }) => {
-                    let iconName: string = "home"; // Default value
+                    let iconName = "home"; // Default value
 
                     if (route.name === "Home") {
                         iconName = "home";
                     } else if (route.name === "Chat") {
                         iconName = "chatbubbles";
-                    } else if (route.name === "Profile") {
-                        iconName = "person";
+                    } else if (route.name === "Blogs") {
+                        iconName = "reader-sharp";
+                    } else if (route.name === "Call") {
+                        iconName = "call";
                     }
 
                     return <Ionicons name={iconName} size={size} color={color} />;
-                }
-                ,
-                tabBarActiveTintColor: "#FF5733",
-                tabBarInactiveTintColor: "gray",
+                },
+                headerShown: false,
+                tabBarButton: (props) => (
+                    <PlatformPressable
+                        {...props}
+                        android_ripple={{ color: "transparent" }} // Disables ripple effect on Android
+                    />
+                ),
             })}
         >
             <Tab.Screen name="Home" component={HomeScreen} />
             <Tab.Screen name="Chat" component={ChatScreen} />
-            <Tab.Screen name="Profile" component={ProfileScreen} />
+            <Tab.Screen name="Call" component={CallScreen} />
+            <Tab.Screen name="Blogs" component={BlogScreen} />
         </Tab.Navigator>
     );
 };

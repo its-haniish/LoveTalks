@@ -50,24 +50,23 @@ export default StyleSheet.create({
         paddingVertical: 20,
         paddingHorizontal: 15,
     },
-    bottomContainerMain: {
+    filtersContaniner: {
         width: "100%",
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
         marginBottom: 20,
     },
-    bottomSheetTitle: {
-        fontSize: 16,
-        fontWeight: "bold",
-        color: "#333",
+    filterTitleContainer: {
+        width: "100%",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
         borderBottomWidth: 1,
         borderBottomColor: "#ccc",
-        paddingBottom: 10,
-        width: "100%",
-        textAlign: "center",
+
     },
-    bottomSheetLeftContainer: {
+    filtersNameContainer: {
         width: "40%",
         flexDirection: "row",
         justifyContent: "flex-start",
@@ -75,13 +74,13 @@ export default StyleSheet.create({
         marginTop: 20,
         backgroundColor: "transparent",
     },
-    bottomSheetRightContainer: {
+    filtersRasioBtnsContainer: {
         width: "60%",
         justifyContent: "center",
         alignItems: "flex-start",
         marginTop: 10,
     },
-    filterTitle: {
+    filterName: {
         fontSize: 14,
         fontWeight: "bold",
         color: "#333",
@@ -98,17 +97,12 @@ export default StyleSheet.create({
         alignItems: "center",
         marginTop: 10,
     },
-    bottomSheetSortContainer: {
+    sortingContainer: {
         width: "100%",
     },
-    bottomSheetSortTitle: {
-        width: "100%",
-        borderBottomWidth: 1,
-        borderTopColor: "#ccc",
-        borderBottomColor: "#ccc",
+    sortAndFilterTitle: {
         paddingBottom: 10,
         marginVertical: 5,
-        textAlign: "center",
         fontSize: 15,
         fontWeight: "bold",
         color: "#333",
@@ -122,8 +116,14 @@ export default StyleSheet.create({
         flexDirection: "column",
         justifyContent: "flex-start",
         alignItems: "flex-start",
+    },
+    removeFiltersBtn: {
+        fontSize: 14,
+        fontWeight: "bold",
+        color: "#FF007F",
+        backgroundColor: "aliceblue",
+        paddingVertical: 5,
+        paddingHorizontal: 10,
+        borderRadius: 8,
     }
-
-
-
 });

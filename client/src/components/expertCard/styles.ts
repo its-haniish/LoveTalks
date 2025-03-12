@@ -48,8 +48,8 @@ export default StyleSheet.create({
         gap: 2,
     },
     expertName: {
-        fontSize: 20,
-        fontWeight: 'bold',
+        fontSize: 18,
+        fontWeight: '500',
         textAlign: 'left',
     },
     expertInfo: {
@@ -58,8 +58,8 @@ export default StyleSheet.create({
         textAlign: 'left',
     },
     expertRate: {
-        fontSize: 15,
-        fontWeight: 'bold',
+        fontSize: 14,
+        fontWeight: '500',
         color: 'gray',
         textAlign: 'left',
     },

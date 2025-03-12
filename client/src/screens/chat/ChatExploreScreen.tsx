@@ -3,13 +3,13 @@ import { View, Text, TouchableOpacity, ScrollView, TouchableWithoutFeedback } fr
 import RadioGroup from 'react-native-radio-buttons-group';
 import FontAwesome6 from "react-native-vector-icons/FontAwesome6";
 import styles from "./styles";
-import { Divider, ExpertCard } from "../../components";
+import { Divider, ExpertCard, PosterCrousel } from "../../components";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import BottomSheet, { BottomSheetBackdrop, BottomSheetView } from '@gorhom/bottom-sheet';
 
-const ChatScreen = () => {
+const ChatExploreScreen = () => {
     const [selectedGenderId, setSelectedGenderId] = useState<string | undefined>();
-    const [selectedSortId, setSelectedSortId] = useState<string | undefined>();
+    const [selectedSortId, setSelectedSortId] = useState<string>("relevance");
 
     const genderRadioButtons = useMemo(() => ([
         {
@@ -28,9 +28,9 @@ const ChatScreen = () => {
 
     const sortRadioButtons = useMemo(() => ([
         {
-            id: "revelence",
+            id: "relevance",
             label: 'Relevance',
-            value: 'revelence',
+            value: 'relevance',
             size: 16
         },
         {
@@ -58,7 +58,6 @@ const ChatScreen = () => {
             size: 16
         }
     ]), []);
-
 
     // ref
     const bottomSheetRef = useRef<BottomSheet>(null);
@@ -88,35 +87,38 @@ const ChatScreen = () => {
     return (
         <GestureHandlerRootView style={styles.container}>
             <TouchableWithoutFeedback onPress={closeBottomSheet}>
-                <View style={styles.mainContainer}>
-                    <View style={styles.filterContainer}>
-                        <View style={styles.appNameContainer}>
-                            <Text style={styles.appNamePinkTxt}>Love</Text>
-                            <Text style={styles.appNameBlueTxt}>Chats</Text>
-                        </View>
-                        <TouchableOpacity onPress={openBottomSheet}>
-                            <View style={styles.filterBtnContainer}>
-                                <FontAwesome6 name="sliders" size={14} color="black" />
-                                <Text style={styles.filterbtnTxt}>Filters</Text>
+                <>
+                    <PosterCrousel />
+                    <View style={styles.mainContainer}>
+                        <View style={styles.filterContainer}>
+                            <View style={styles.appNameContainer}>
+                                <Text style={styles.appNamePinkTxt}>Love</Text>
+                                <Text style={styles.appNameBlueTxt}>Chats</Text>
                             </View>
-                        </TouchableOpacity>
+                            <TouchableOpacity onPress={openBottomSheet}>
+                                <View style={styles.filterBtnContainer}>
+                                    <FontAwesome6 name="sliders" size={14} color="black" />
+                                    <Text style={styles.filterbtnTxt}>Filters</Text>
+                                </View>
+                            </TouchableOpacity>
+                        </View>
+
+                        <Divider />
+
+                        <ScrollView showsVerticalScrollIndicator={false} >
+                            <ExpertCard />
+                            <ExpertCard />
+                            <ExpertCard />
+                            <ExpertCard />
+                            <ExpertCard />
+                            <ExpertCard />
+                            <ExpertCard />
+                            <ExpertCard />
+                            <ExpertCard />
+                            <ExpertCard />
+                        </ScrollView>
                     </View>
-
-                    <Divider />
-
-                    <ScrollView showsVerticalScrollIndicator={false} >
-                        <ExpertCard />
-                        <ExpertCard />
-                        <ExpertCard />
-                        <ExpertCard />
-                        <ExpertCard />
-                        <ExpertCard />
-                        <ExpertCard />
-                        <ExpertCard />
-                        <ExpertCard />
-                        <ExpertCard />
-                    </ScrollView>
-                </View>
+                </>
             </TouchableWithoutFeedback>
 
             {/* BottomSheet Component */}
@@ -131,14 +133,29 @@ const ChatScreen = () => {
                 )}
             >
                 <BottomSheetView style={styles.bottomSheetContainer}>
-                    <Text style={styles.bottomSheetTitle}>Filters</Text>
+                    <View style={styles.filterTitleContainer}>
+                        <Text style={styles.sortAndFilterTitle}>Filters</Text>
+                        {/* remove filters btn   */}
+                        {
+                            selectedGenderId && (
+                                <TouchableOpacity
+                                    onPress={() => {
+                                        setSelectedGenderId(undefined);
+                                        setSelectedSortId("relevance");
+                                    }}
+                                >
+                                    <Text style={styles.removeFiltersBtn}>Remove Filters</Text>
+                                </TouchableOpacity>
+                            )
+                        }
+                    </View>
 
-                    <View style={styles.bottomContainerMain}>
-                        <View style={styles.bottomSheetLeftContainer}>
-                            <Text style={styles.filterTitle}>Gender</Text>
+                    <View style={styles.filtersContaniner}>
+                        <View style={styles.filtersNameContainer}>
+                            <Text style={styles.filterName}>Gender</Text>
                         </View>
 
-                        <View style={styles.bottomSheetRightContainer}>
+                        <View style={styles.filtersRasioBtnsContainer}>
                             <RadioGroup
                                 radioButtons={genderRadioButtons}
                                 onPress={onGenderRadioBtnPress}
@@ -147,11 +164,16 @@ const ChatScreen = () => {
                                 containerStyle={styles.radioBtnContainer}
                             />
                         </View>
+
+
+
                     </View>
 
                     {/* Fix applied here */}
-                    <View style={styles.bottomSheetSortContainer}>
-                        <Text style={styles.bottomSheetSortTitle}>Sort</Text>
+                    <View style={styles.sortingContainer}>
+                        <View style={styles.filterTitleContainer}>
+                            <Text style={styles.sortAndFilterTitle}>Sort</Text>
+                        </View>
                         <View style={styles.sortsContainer}>
 
                             <RadioGroup
@@ -172,4 +194,4 @@ const ChatScreen = () => {
     );
 };
 
-export default ChatScreen;
+export default ChatExploreScreen;

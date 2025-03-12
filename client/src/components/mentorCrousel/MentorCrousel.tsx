@@ -1,14 +1,14 @@
 import React from "react";
 import styles from "./styles";
 import { ScrollView, View, Text, TouchableWithoutFeedback, Image } from "react-native";
-import { ExpertCardProps, ExpertCrouselProps } from "../../types";
+import { MentorCardProps, MentorCrouselProps } from "../../types";
 import AntDesign from "react-native-vector-icons/AntDesign";
 
-const ExpertCrousel = ({ expertCardsData }: ExpertCrouselProps) => {
+const MentorCrousel = ({ mentorCardsData }: MentorCrouselProps) => {
     return (
         <View style={styles.crouselMainContainer}>
             <View style={styles.crouselHeadContainer}>
-                <Text style={styles.crouselTitle}>Experts</Text>
+                <Text style={styles.crouselTitle}>Love Mentors</Text>
                 <TouchableWithoutFeedback>
                     <Text style={styles.crouselViewAllBtn}>View All <AntDesign name="arrowright" size={12} color="grey" /> </Text>
                 </TouchableWithoutFeedback>
@@ -16,13 +16,13 @@ const ExpertCrousel = ({ expertCardsData }: ExpertCrouselProps) => {
             <ScrollView horizontal={true}
                 contentContainerStyle={styles.crouselContainer}
                 showsHorizontalScrollIndicator={false}>
-                {expertCardsData.map((expertCard) => (
+                {mentorCardsData.map((mentor) => (
 
-                    <ExpertCard
-                        image={expertCard.image}
-                        name={expertCard.name}
-                        price={expertCard.price}
-                        key={expertCard.id}
+                    <MentorCard
+                        image={mentor.image}
+                        name={mentor.name}
+                        price={mentor.price}
+                        key={mentor.id}
                     />
                 ))}
             </ScrollView>
@@ -30,14 +30,14 @@ const ExpertCrousel = ({ expertCardsData }: ExpertCrouselProps) => {
     )
 };
 
-const ExpertCard = ({ image, name, price }: ExpertCardProps) => {
+const MentorCard = ({ image, name, price }: MentorCardProps) => {
     return (
         <View>
             <View>
-                <View style={styles.expertCardContainer}>
-                    <Image source={image} style={styles.expertImage} />
-                    <Text style={styles.expertName}>{name}</Text>
-                    <Text style={styles.expertPrice}>{`₹${price}/min`}</Text>
+                <View style={styles.mentorCardContainer}>
+                    <Image source={image} style={styles.mentorImage} />
+                    <Text style={styles.mentorName}>{name}</Text>
+                    <Text style={styles.mentorPrice}>{`₹${price}/min`}</Text>
                     <TouchableWithoutFeedback>
                         <View style={styles.chatButton}>
                             <Text style={styles.chatButtonText}>Chat</Text>
@@ -51,4 +51,4 @@ const ExpertCard = ({ image, name, price }: ExpertCardProps) => {
     )
 };
 
-export default ExpertCrousel;
+export default MentorCrousel;

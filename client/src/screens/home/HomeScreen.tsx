@@ -13,28 +13,28 @@ import {
 } from "../../components";
 
 const HomeScreen = () => {
-    const expertCardsData = [
+    const mentorCardsData = [
         {
             id: 1,
-            name: "John Doe",
+            name: "Mahesh",
             price: 50,
             image: require("../../../assets/expert/expert1.jpeg"),
         },
         {
             id: 2,
-            name: "Jane Doe",
+            name: "Ramesh",
             price: 60,
             image: require("../../../assets/expert/expert2.jpeg"),
         },
         {
             id: 3,
-            name: "John Doe",
+            name: "Suresh",
             price: 50,
             image: require("../../../assets/expert/expert1.jpeg"),
         },
         {
             id: 4,
-            name: "Jane Doe",
+            name: "Dogesh",
             price: 60,
             image: require("../../../assets/expert/expert2.jpeg"),
         },
@@ -120,7 +120,7 @@ const HomeScreen = () => {
                     <Poster image={require("../../../assets/posters/quote.png")} screenName="Chat" />
 
                     {/* expert cards crousel */}
-                    <ExpertCrousel expertCardsData={expertCardsData} />
+                    <ExpertCrousel mentorCardsData={mentorCardsData} />
 
                     {/* rectangle image for chat screen  */}
                     <Poster image={require("../../../assets/posters/poster2.png")} screenName="Chat" />
@@ -137,13 +137,13 @@ const HomeScreen = () => {
                     <View style={styles.roundBtnContainer}>
                         {/* <RoundBtnWithIcon /> */}
                         <RoundBtnWithIcon
-                            title="Chat with Experts"
+                            title="Chat with Mentors"
                             icon="chatbubble-ellipses-sharp"
                             screenToGo="Chat"
                         />
                         {/* <RoundBtnWithIcon /> */}
                         <RoundBtnWithIcon
-                            title="Call with Experts"
+                            title="Call with Mentors"
                             icon="call"
                             screenToGo="Call"
                         />

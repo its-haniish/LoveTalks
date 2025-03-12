@@ -24,7 +24,7 @@ export default StyleSheet.create({
         alignItems: 'center',
         gap: 10,
     },
-    expertImage: {
+    mentorImage: {
         width: 60,
         height: 60,
         borderRadius: 50,
@@ -47,17 +47,17 @@ export default StyleSheet.create({
         marginTop: 30,
         gap: 2,
     },
-    expertName: {
+    mentorName: {
         fontSize: 18,
         fontWeight: '500',
         textAlign: 'left',
     },
-    expertInfo: {
+    mentorInfo: {
         fontSize: 13,
         color: 'gray',
         textAlign: 'left',
     },
-    expertRate: {
+    mentorRate: {
         fontSize: 14,
         fontWeight: '500',
         color: 'gray',

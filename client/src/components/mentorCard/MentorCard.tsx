@@ -11,7 +11,7 @@ const ExpertCard = () => {
         <TouchableOpacity style={styles.cardMainContainer}>
             {/* left container  */}
             <View style={styles.leftContainer}>
-                <Image source={defaultPic} style={styles.expertImage} />
+                <Image source={defaultPic} style={styles.mentorImage} />
                 <View style={styles.starsContainer}>
                     <Foundation size={16} name="star" color="grey" />
                     <Foundation size={16} name="star" color="grey" />
@@ -22,10 +22,10 @@ const ExpertCard = () => {
             </View>
             {/* middle container */}
             <View style={styles.middleContainer}>
-                <Text style={styles.expertName}>Expert Name</Text>
-                <Text style={styles.expertInfo}>English, Hindi</Text>
-                <Text style={styles.expertInfo}>Exp- 3 years</Text>
-                <Text style={styles.expertRate}>₹50/min</Text>
+                <Text style={styles.mentorName}>Expert Name</Text>
+                <Text style={styles.mentorInfo}>English, Hindi</Text>
+                <Text style={styles.mentorInfo}>Exp- 3 years</Text>
+                <Text style={styles.mentorRate}>₹50/min</Text>
             </View>
             {/* right container */}
             <View style={styles.rightContainer}>

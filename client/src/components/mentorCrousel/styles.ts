@@ -26,7 +26,7 @@ export default StyleSheet.create({
         color: "grey",
         fontWeight: "400",
     },
-    expertCardContainer: {
+    mentorCardContainer: {
         width: 150,
         height: 200,
         backgroundColor: 'white',
@@ -36,18 +36,18 @@ export default StyleSheet.create({
         elevation: 2,
         alignItems: 'center',
     },
-    expertImage: {
+    mentorImage: {
         width: 100,
         height: 100,
         borderRadius: 50,
         borderWidth: 2,
         borderColor: 'skyblue',
     },
-    expertName: {
+    mentorName: {
         fontSize: 14,
         fontWeight: 'bold',
     },
-    expertPrice: {
+    mentorPrice: {
         fontSize: 12,
         fontWeight: 'bold'
     },

@@ -25,7 +25,7 @@ export type SquareCardProps = {
 
 // expert card props used on homescreen to display expert information
 
-export type ExpertCardProps = {
+export type MentorCardProps = {
     image: ImageSourcePropType;
     name: string;
     price: number;  // Use lowercase 'number'
@@ -34,8 +34,8 @@ export type ExpertCardProps = {
 
 
 // navigation prop used to navigate between screens
-export type ExpertCrouselProps = {
-    expertCardsData: ExpertCardProps[];
+export type MentorCrouselProps = {
+    mentorCardsData: MentorCardProps[];
 
 };
 

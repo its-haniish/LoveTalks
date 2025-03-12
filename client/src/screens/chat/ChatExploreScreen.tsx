@@ -64,7 +64,8 @@ const ChatExploreScreen = () => {
 
     // Callback for handling BottomSheet changes
     const handleSheetChanges = useCallback((index: number) => {
-        console.log('Filters:', index);
+        index !== 1 ? console.log('Filters Close') : console.log('Folters Open');
+
     }, []);
 
     // Function to open BottomSheet

@@ -2,12 +2,12 @@ import React, { useMemo, useState, useCallback, useRef } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, TouchableWithoutFeedback } from "react-native";
 import RadioGroup from 'react-native-radio-buttons-group';
 import FontAwesome6 from "react-native-vector-icons/FontAwesome6";
-import styles from "./styles";
-import { Divider, ExpertCard, PosterCrousel } from "../../components";
+import styles from "./callExploreStyles";
+import { Divider, MentorCard, PosterCrousel } from "../../components";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import BottomSheet, { BottomSheetBackdrop, BottomSheetView } from '@gorhom/bottom-sheet';
 
-const ChatExploreScreen = () => {
+const CallExplore = () => {
     const [selectedGenderId, setSelectedGenderId] = useState<string | undefined>();
     const [selectedSortId, setSelectedSortId] = useState<string>("relevance");
 
@@ -64,7 +64,7 @@ const ChatExploreScreen = () => {
 
     // Callback for handling BottomSheet changes
     const handleSheetChanges = useCallback((index: number) => {
-        index !== 1 ? console.log('Filters Close') : console.log('Folters Open');
+        index !== 1 ? console.log('Filters Close') : console.log('Filters Open');
 
     }, []);
 
@@ -94,7 +94,7 @@ const ChatExploreScreen = () => {
                         <View style={styles.filterContainer}>
                             <View style={styles.appNameContainer}>
                                 <Text style={styles.appNamePinkTxt}>Love</Text>
-                                <Text style={styles.appNameBlueTxt}>Chats</Text>
+                                <Text style={styles.appNameBlueTxt}>Calls</Text>
                             </View>
                             <TouchableOpacity onPress={openBottomSheet}>
                                 <View style={styles.filterBtnContainer}>
@@ -107,16 +107,15 @@ const ChatExploreScreen = () => {
                         <Divider />
 
                         <ScrollView showsVerticalScrollIndicator={false} >
-                            <ExpertCard />
-                            <ExpertCard />
-                            <ExpertCard />
-                            <ExpertCard />
-                            <ExpertCard />
-                            <ExpertCard />
-                            <ExpertCard />
-                            <ExpertCard />
-                            <ExpertCard />
-                            <ExpertCard />
+                            <MentorCard type='call' />
+                            <MentorCard type='call' />
+                            <MentorCard type='call' />
+                            <MentorCard type='call' />
+                            <MentorCard type='call' />
+                            <MentorCard type='call' />
+                            <MentorCard type='call' />
+                            <MentorCard type='call' />
+                            <MentorCard type='call' />
                         </ScrollView>
                     </View>
                 </>
@@ -195,4 +194,4 @@ const ChatExploreScreen = () => {
     );
 };
 
-export default ChatExploreScreen;
+export default CallExplore;

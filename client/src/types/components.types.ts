@@ -23,15 +23,6 @@ export type SquareCardProps = {
     image: ImageSourcePropType;
 };
 
-// expert card props used on homescreen to display expert information
-
-export type MentorCardProps = {
-    image: ImageSourcePropType;
-    name: string;
-    price: number;  // Use lowercase 'number'
-    id?: number | null;  // Make 'id' optional
-};
-
 
 // navigation prop used to navigate between screens
 export type MentorCrouselProps = {
@@ -61,5 +52,11 @@ export type RoundBtnWithIconProps = {
     title: string;
     icon: string;
     screenToGo: keyof RootStackParamList;
+};
+
+
+// expert card props
+export type MentorCardProps = {
+    type: "call" | "chat";
 };
 

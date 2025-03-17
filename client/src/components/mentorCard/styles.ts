@@ -77,16 +77,17 @@ export default StyleSheet.create({
         height: "30%",
         resizeMode: "cover",
     },
-    chatButton: {
+    typeButton: {
         borderColor: 'gold',
         borderWidth: 1,
         paddingVertical: 5,
         paddingHorizontal: 20,
         borderRadius: 20,
     },
-    chatButtonText: {
+    typeButtonText: {
         color: 'gold',
         fontSize: 16,
         fontWeight: '500',
+        textTransform: "capitalize"
     },
 });

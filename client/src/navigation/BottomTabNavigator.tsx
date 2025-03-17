@@ -1,6 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { HomeScreen, ChatExploreScreen, BlogScreen, CallScreen } from "../screens";
+import { HomeScreen, ChatExplore, BlogScreen, CallExplore } from "../screens";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { PlatformPressable } from "@react-navigation/elements";
 
@@ -35,8 +35,8 @@ const BottomTabNavigator = () => {
             })}
         >
             <Tab.Screen name="Home" component={HomeScreen} />
-            <Tab.Screen name="Chat" component={ChatExploreScreen} />
-            <Tab.Screen name="Call" component={CallScreen} />
+            <Tab.Screen name="Chat" component={ChatExplore} />
+            <Tab.Screen name="Call" component={CallExplore} />
             <Tab.Screen name="Blogs" component={BlogScreen} />
         </Tab.Navigator>
     );

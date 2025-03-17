@@ -2,9 +2,9 @@ import React from 'react'
 import { Text, View, Image, TouchableOpacity } from 'react-native'
 import styles from './styles'
 import Foundation from "react-native-vector-icons/Foundation";
+import { MentorCardProps } from "../../types"
 
-
-const ExpertCard = () => {
+const MentorCard = ({ type }: MentorCardProps) => {
     const defaultPic = require('../../../assets/default.png');
 
     return (
@@ -34,8 +34,8 @@ const ExpertCard = () => {
                     style={styles.verifyImage}
                 />
                 <TouchableOpacity>
-                    <View style={styles.chatButton}>
-                        <Text style={styles.chatButtonText}>Chat</Text>
+                    <View style={styles.typeButton}>
+                        <Text style={styles.typeButtonText}>{type}</Text>
                     </View>
                 </TouchableOpacity>
             </View>
@@ -45,4 +45,4 @@ const ExpertCard = () => {
     )
 }
 
-export default ExpertCard
+export default MentorCard

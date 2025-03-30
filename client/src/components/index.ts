@@ -9,3 +9,4 @@ export { default as RoundBtnWithIcon } from "./roundBtnWithIcon/RoundBtnWithIcon
 export { default as MentorCard } from "./mentorCard/MentorCard"
 export { default as Divider } from "./divider/Divider"
 export { default as PosterCrousel } from "./poster/PosterCrousel"
+export { default as BlogCard } from "./blogCard/BlogCard"

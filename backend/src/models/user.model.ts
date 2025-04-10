@@ -1,59 +1,28 @@
-import mongoose, { Schema, Document } from "mongoose";
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-    
-export interface User extends Document {
-    name: string;
-    email: string;
-    password: string;
-    paymentInfo: {
-        paymentMethod: "card" | "paypal" | "upi" | "wallet";
-        transactionHistory: {
-            amount: number;
-            date: Date;
-            status: "success" | "failed" | "pending";
-            transactionId: string;
-            razorpayPaymentId: string;
-        }[];
-    };
-    wallet: {
-        coinBalance: number;
-        coinTransactionHistory: {
-            coins: number;
-            date: Date;
-            type: "earned" | "spent" | "purchased";
-            description?: string;
-        }[];
-    };
-    comparePassword(password: string): Promise<boolean>;
-    generateToken(): Promise<string | null>;
-}
+import mongoose, { Schema, Document, Types } from "mongoose";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import { IUser } from "../types";
 
-const UserSchema = new Schema<User>(
+const UserSchema = new Schema<IUser>(
     {
         name: { type: String, required: true, trim: true },
         email: { type: String, required: true, unique: true, lowercase: true },
+        phone: { type: String, required: true, unique: true },
+        dateOfBirth: { type: Date, required: true },
+        country: { type: String, required: true },
+        age: { type: Number },
         password: { type: String, required: true },
-        paymentInfo: {
-            paymentMethod: { type: String, enum: ["card", "paypal", "upi", "wallet"], default: "card" },
-            transactionHistory: [
-                {
-                    amount: { type: Number, required: true },
-                    date: { type: Date, required: true },
-                    status: { type: String, enum: ["success", "failed", "pending"], required: true },
-                    transactionId: { type: String, required: true },
-                    razorpayPaymentId: { type: String, required: true },
-                },
-            ],
-        },
         wallet: {
             coinBalance: { type: Number, default: 0 },
             coinTransactionHistory: [
                 {
                     coins: { type: Number, required: true },
+                    _id: { type: Types.ObjectId, auto: true },
                     date: { type: Date, default: Date.now },
                     type: { type: String, enum: ["earned", "spent", "purchased"], required: true },
                     description: { type: String },
+                    transactionId: { type: String },
+                    isCompleted: { type: Boolean, default: false },
                 },
             ],
         },
@@ -64,7 +33,7 @@ const UserSchema = new Schema<User>(
 );
 
 // Hash password before saving
-UserSchema.pre<User>("save", async function (next) {
+UserSchema.pre<IUser>("save", async function (next) {
     if (!this.isModified("password")) return next(); // Hash only if password is modified
 
     try {
@@ -75,6 +44,24 @@ UserSchema.pre<User>("save", async function (next) {
     } catch (error) {
         next(error as Error);
     }
+});
+
+// Save age before saving
+UserSchema.pre<IUser>("save", function (next) {
+    if (!this.isModified("dateOfBirth")) return next(); // Calculate age only if dateOfBirth is modified
+
+    const today = new Date();
+    const birthDate = new Date(this.dateOfBirth);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+
+    this.age = age;
+    next();
+
 });
 
 // Compare passwords
@@ -92,4 +79,4 @@ UserSchema.methods.generateToken = async function (): Promise<string | null> {
     }
 };
 
-export default mongoose.model<User>("User", UserSchema);
+export default mongoose.model<IUser>("User", UserSchema);

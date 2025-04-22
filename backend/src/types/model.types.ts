@@ -65,17 +65,28 @@ export interface ISession extends Document {
     endTime?: Date;
     durationInMinutes?: number;
     status: "pending" | "active" | "completed" | "cancelled";
-    sessionType: "chat" | "call";
+    sessionType: "call" | "chat";
     messages?: {
-      sender: "user" | "mentor";
-      message: string;
-      timestamp: Date;
+        sender: "user" | "mentor";
+        message: string;
+        timestamp: Date;
     }[];
     coinsSpent: number;
     coinsEarned: number;
     feedback?: {
-      rating: number;
-      comment?: string;
+        rating: number;
+        comment?: string;
     };
-  }
-  
+}
+
+export interface IContentBlock {
+    type: "heading" | "image" | "paragraph";
+    value: string;
+}
+
+export interface IBlogPost extends Document {
+    title: string;
+    content: IContentBlock[];
+    createdAt?: Date;
+    updatedAt?: Date;
+}

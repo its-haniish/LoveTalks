@@ -5,8 +5,8 @@ import { asyncHandler } from "../middlewares/asyncHandler.middleware";
 const router = express.Router();
 
 router.get("/", blogController.getAllBlogs);
-router.get("/:id", asyncHandler(blogController.getBlogById));
-router.post("/", blogController.createBlog);
+router.get("/:slug", asyncHandler(blogController.getBlogBySlug));
+router.post("/", asyncHandler(blogController.createBlog));
 router.put("/:id", asyncHandler(blogController.updateBlog));
 router.delete("/:id", asyncHandler(blogController.deleteBlog));
 

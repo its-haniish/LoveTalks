@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { IContentBlock, IBlogPost } from "../types"
+import { IContentBlock, IBlogPost } from "../types";
 
 const contentBlockSchema = new Schema<IContentBlock>(
     {
@@ -8,7 +8,6 @@ const contentBlockSchema = new Schema<IContentBlock>(
             enum: ["heading", "image", "paragraph"],
             required: true,
         },
-
         value: { type: String, required: true },
     },
     { _id: false }

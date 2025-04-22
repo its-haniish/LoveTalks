@@ -80,14 +80,17 @@ export interface ISession extends Document {
 }
 
 export interface IContentBlock {
-    type: "heading" | "image" | "paragraph";
+    type: 'heading' | 'image' | 'paragraph';
     value: string;
 }
 
-export interface IBlogPost extends Document {
+export interface IBlogPostInput {
     title: string;
-    content: IContentBlock[];
     slug: string;
-    createdAt?: Date;
-    updatedAt?: Date;
+    content: IContentBlock[];
+}
+
+export interface IBlogPost extends IBlogPostInput, Document {
+    createdAt: Date;
+    updatedAt: Date;
 }

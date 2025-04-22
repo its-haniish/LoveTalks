@@ -1,5 +1,7 @@
 import { Request, Response } from 'express';
 import { blogService } from '../services';
+import { blogPostSchema, updateBlogPostSchema, BlogPostInput, UpdateBlogPost } from '../validators';
+import { z } from 'zod';
 
 export const getAllBlogs = async (req: Request, res: Response) => {
     try {
@@ -10,9 +12,9 @@ export const getAllBlogs = async (req: Request, res: Response) => {
     }
 };
 
-export const getBlogById = async (req: Request, res: Response) => {
+export const getBlogBySlug = async (req: Request, res: Response) => {
     try {
-        const blog = await blogService.getBlogById(req.params.id);
+        const blog = await blogService.getBlogBySlug(req.params.slug);
         if (!blog) return res.status(404).json({ error: 'Blog not found' });
         res.json(blog);
     } catch (err) {
@@ -20,22 +22,42 @@ export const getBlogById = async (req: Request, res: Response) => {
     }
 };
 
-export const createBlog = async (req: Request, res: Response) => {
+export const createBlogController = async (req: Request, res: Response) => {
     try {
-        const newBlog = await blogService.createBlog(req.body);
+        // Validate the request body using Zod
+        const validatedData: BlogPostInput = blogPostSchema.parse(req.body);  // Will throw if invalid
+
+        // Call the service to create the blog
+        const newBlog = await blogService.createBlog(validatedData);
+
+        // Return the newly created blog post in the response
         res.status(201).json(newBlog);
-    } catch (err) {
-        res.status(400).json({ error: 'Error creating blog' });
+    } catch (err: unknown) {
+        // If validation fails, return a 400 response with error details
+        if (err instanceof z.ZodError) {
+            return res.status(400).json({ error: 'Validation failed', details: err.errors });
+        }
+
+        // For other errors (like DB-related or service issues), return a 400 response
+        const errorMessage = err instanceof Error ? err.message : 'Unknown error';
+        res.status(400).json({ error: 'Error creating blog', message: errorMessage });
     }
 };
 
 export const updateBlog = async (req: Request, res: Response) => {
     try {
-        const updatedBlog = await blogService.updateBlog(req.params.id, req.body);
+        // Validate the request body using Zod (for updates)
+        const validatedData: UpdateBlogPost = updateBlogPostSchema.parse(req.body); // Will throw if invalid
+
+        const updatedBlog = await blogService.updateBlog(req.params.id, validatedData);
         if (!updatedBlog) return res.status(404).json({ error: 'Blog not found' });
         res.json(updatedBlog);
-    } catch (err) {
-        res.status(400).json({ error: 'Error updating blog' });
+    } catch (err: unknown) {
+        if (err instanceof z.ZodError) {
+            return res.status(400).json({ error: 'Validation failed', details: err.errors });
+        }
+        const errorMessage = err instanceof Error ? err.message : 'Unknown error';
+        res.status(400).json({ error: 'Error updating blog', message: errorMessage });
     }
 };
 

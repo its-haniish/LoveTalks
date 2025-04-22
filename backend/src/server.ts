@@ -3,6 +3,7 @@ import cors from "cors";
 import { createServer } from "http";
 import { Server, Socket } from "socket.io";
 import blogRoutes from './routes/blog.routes';
+import mongoose from "mongoose";
 
 const app = express();
 const PORT = 5000;
@@ -42,6 +43,14 @@ io.on("connection", (socket: Socket) => {
         console.log(`Client disconnected: ${socket.id}`);
     });
 });
+
+mongoose.connect(process.env.MONGO_URI as string)
+    .then(() => {
+        console.log("MongoDB connected successfully");
+    })
+    .catch((error) => {
+        console.error("Error connecting to MongoDB:", error.message);
+    });
 
 // Start HTTP server (not app.listen anymore)
 httpServer.listen(PORT, () => {

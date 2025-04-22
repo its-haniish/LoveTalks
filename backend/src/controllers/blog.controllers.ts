@@ -22,7 +22,7 @@ export const getBlogBySlug = async (req: Request, res: Response) => {
     }
 };
 
-export const createBlogController = async (req: Request, res: Response) => {
+export const createBlog = async (req: Request, res: Response) => {
     try {
         // Validate the request body using Zod
         const validatedData: BlogPostInput = blogPostSchema.parse(req.body);  // Will throw if invalid

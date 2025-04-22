@@ -2,63 +2,63 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
     mainContainer: {
-        width: "100%",
-        height: 240,
-        backgroundColor: "white",
-        borderRadius: 10,
-        marginBottom: 10,
-        elevation: 2,
-        paddingHorizontal: 10,
-        justifyContent: "center",
+        backgroundColor: '#fff',
+        borderRadius: 12,
+        marginBottom: 16,
+        padding: 12,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 4,
+        elevation: 4,
     },
+    
     headAndImgContainer: {
-        width: "100%",
-        height: 150,
-        borderRadius: 10,
-        overflow: "hidden",
-        flexDirection: "row",
-        justifyContent: "space-evenly",
-        gap: 10,
+        marginBottom: 10,
     },
+
     imgCont: {
-        width: "50%",
-    },
-    imgStyles: {
-        width: "100%",
-        height: 120,
         borderRadius: 10,
-        elevation: 2,
+        overflow: 'hidden',
     },
+
+    imgStyles: {
+        width: '100%',
+        height: 180,
+        borderRadius: 10,
+    },
+
     title: {
-        fontSize: 16,
-        height: 120,
-        fontWeight: "500",
-        width: "50%",
-        textAlign: "justify",
-        flexWrap: "wrap",
-        flexShrink: 1, // Prevents text from being cut
+        fontSize: 18,
+        fontWeight: '600',
+        marginTop: 10,
+        color: '#333',
     },
+
     para: {
-        marginTop: -20,
         fontSize: 14,
-        textAlign: "justify",
-        marginBottom: 5,
-        flexWrap: "wrap",
-        flexShrink: 1, // Prevents text from being cut
+        marginVertical: 8,
+        color: '#555',
     },
+
     readMore: {
-        color: "blue",
+        color: '#FF69B4',
+        fontWeight: '600',
     },
+
     infoContainer: {
-        flexDirection: "row",
-        justifyContent: "space-between",
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 8,
     },
-    infoHead: {
-        fontWeight: "bold",
-        color: "gray",
-    },
+
     infoData: {
-        color: "gray",
-        fontWeight: "500",
+        fontSize: 12,
+        color: '#888',
+    },
+
+    infoHead: {
+        fontWeight: '600',
+        color: '#444',
     },
 });

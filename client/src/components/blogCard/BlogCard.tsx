@@ -15,9 +15,6 @@ const BlogCard = () => {
                 </View>
                 <Text style={styles.title}>{truncateText(text, 20)}</Text>
             </View>
-            <View>
-                <Text style={styles.para}>{truncateText(text, 30)} <Text style={styles.readMore}>Read More</Text></Text>
-            </View>
             <View style={styles.infoContainer}>
                 <Text style={styles.infoData}> <Text style={styles.infoHead}>Date:</Text> 16,Jan,2025 </Text>
                 <Text style={styles.infoData}> <Text style={styles.infoHead}>Author:</Text> Hanish</Text>

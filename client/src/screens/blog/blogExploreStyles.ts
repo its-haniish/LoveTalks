@@ -3,36 +3,40 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
     mainContainer: {
         flex: 1,
-        backgroundColor: "white"
+        backgroundColor: '#FFF5F7',
     },
+    
     pageHeadContanier: {
-        flexDirection: "row",
-        width: "100%",
-        justifyContent: "space-between",
-        paddingHorizontal: 16,
+        padding: 20,
+        backgroundColor: '#fff',
         borderBottomWidth: 1,
-        borderBottomColor: "#D3D3D3",
-        paddingBottom: 5,
+        borderBottomColor: '#eee',
+        elevation: 3,
+        shadowColor: '#000',
+        shadowOpacity: 0.1,
+        shadowRadius: 10,
     },
+    
     headingContainer: {
-        flexDirection: "row",
-        alignItems: "center",
+        flexDirection: 'row',
+        alignItems: 'baseline',
     },
+    
     pageNamePinkTxt: {
-        color: "#FF007F",
-        fontSize: 20,
-        fontWeight: "bold",
+        fontSize: 28,
+        fontWeight: 'bold',
+        color: '#FF69B4',
+        marginRight: 5,
     },
+    
     pageNameBlueTxt: {
-        color: "#007FFF",
-        fontSize: 20,
-        fontWeight: "bold",
-        textTransform: "capitalize",
+        fontSize: 28,
+        fontWeight: 'bold',
+        color: '#6495E3',
     },
+    
     blogScrollContainer: {
-        paddingVertical: 10,
-        paddingHorizontal: 16,
-        width: "100%",
-    }
-
+        padding: 16,
+        paddingBottom: 100,
+    },    
 });

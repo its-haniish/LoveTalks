@@ -1,24 +1,5 @@
-import mongoose, { Schema, Document, Types } from "mongoose";
-
-export interface ISession extends Document {
-  userId: Types.ObjectId;
-  mentorId: Types.ObjectId;
-  startTime: Date;
-  endTime?: Date;
-  durationInMinutes?: number;
-  status: "pending" | "active" | "completed" | "cancelled";
-  messages?: {
-    sender: "user" | "mentor";
-    message: string;
-    timestamp: Date;
-  }[];
-  coinsSpent: number;
-  coinsEarned: number;
-  feedback?: {
-    rating: number; // 1-5
-    comment?: string;
-  };
-}
+import mongoose, { Schema } from "mongoose";
+import { ISession } from "../types";
 
 const sessionSchema = new Schema<ISession>(
   {
@@ -32,13 +13,29 @@ const sessionSchema = new Schema<ISession>(
       enum: ["pending", "active", "completed", "cancelled"],
       default: "pending",
     },
-    messages: [
-      {
-        sender: { type: String, enum: ["user", "mentor"], required: true },
-        message: { type: String, required: true },
-        timestamp: { type: Date, default: Date.now },
+    sessionType: {
+      type: String,
+      enum: ["call", "chat"],
+      required: true,
+    },
+    messages: {
+      type: [
+        {
+          sender: { type: String, enum: ["user", "mentor"], required: true },
+          message: { type: String, required: true },
+          timestamp: { type: Date, default: Date.now },
+        },
+      ],
+      validate: {
+        validator: function (this: ISession, messages: ISession["messages"]) {
+          if (this.sessionType === "call" && messages && messages.length > 0) {
+            return false;
+          }
+          return true;
+        },
+        message: "Messages are only allowed in chat sessions.",
       },
-    ],
+    },
     coinsSpent: { type: Number, default: 0 },
     coinsEarned: { type: Number, default: 0 },
     feedback: {

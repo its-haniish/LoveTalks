@@ -8,6 +8,7 @@ const contentBlockSchema = new Schema<IContentBlock>(
             enum: ["heading", "image", "paragraph"],
             required: true,
         },
+
         value: { type: String, required: true },
     },
     { _id: false }
@@ -16,6 +17,11 @@ const contentBlockSchema = new Schema<IContentBlock>(
 const blogPostSchema = new Schema<IBlogPost>(
     {
         title: { type: String, required: true },
+        slug: {
+            type: String,
+            required: true,
+            unique: true
+        },
         content: {
             type: [contentBlockSchema],
             required: true,

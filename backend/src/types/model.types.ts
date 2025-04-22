@@ -87,6 +87,7 @@ export interface IContentBlock {
 export interface IBlogPost extends Document {
     title: string;
     content: IContentBlock[];
+    slug: string;
     createdAt?: Date;
     updatedAt?: Date;
 }

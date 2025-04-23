@@ -37,7 +37,9 @@ export interface IMentor extends Document {
     branch: string;
     year: string;
     skills: string[];
-    experience: string;
+    experience?: number;
+    idCard: string;
+    isVerified: boolean;
     college: string;
     bio: string;
     profilePicture: string;
@@ -93,4 +95,11 @@ export interface IBlogPostInput {
 export interface IBlogPost extends IBlogPostInput, Document {
     createdAt: Date;
     updatedAt: Date;
+}
+
+
+export interface IOtp extends Document {
+    email: string;
+    otp: string;
+    expiresAt: Date;
 }

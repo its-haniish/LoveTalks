@@ -1,5 +1,5 @@
 import { Blog } from "../models";
-import { IBlogPost, IBlogPostInput } from "../types";
+import { IBlogPost } from "../types";
 import { BlogPostInput, UpdateBlogPost } from "../validators";
 
 export const getAllBlogs = async (): Promise<IBlogPost[]> => {

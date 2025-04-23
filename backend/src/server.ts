@@ -1,12 +1,18 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import { createServer } from "http";
-import { Server, Socket } from "socket.io";
-import blogRoutes from './routes/blog.routes';
-import mongoose from "mongoose";
+import { Server } from "socket.io";
+import dotenv from "dotenv";
+import blogRoutes from "./routes/blog.routes";
+import socketHandler from "./utils/socket";
+import connectDB from "./utils/connectDB";
+
+// Load environment variables
+dotenv.config();
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
+const MONGO_URI = process.env.MONGO_URI as string;
 
 // Create HTTP server
 const httpServer = createServer(app);
@@ -14,10 +20,13 @@ const httpServer = createServer(app);
 // Set up Socket.IO server
 const io = new Server(httpServer, {
     cors: {
-        origin: "*", // Allow all origins or set to your client URL
-        methods: ["GET", "POST"]
+        origin: "*",
+        methods: ["GET", "POST", "PUT", "DELETE"],
     }
 });
+
+// Apply Socket.IO logic
+socketHandler(io);
 
 // Middleware
 app.use(cors());
@@ -29,30 +38,9 @@ app.get("/", (req: Request, res: Response) => {
     res.send("Hello from TypeScript Backend!");
 });
 
-// Socket.IO connection
-io.on("connection", (socket: Socket) => {
-    console.log(`Client connected: ${socket.id}`);
-
-    socket.on("message", (data) => {
-        console.log(`Received message: ${data}`);
-        // Echo the message back
-        socket.emit("message", `Server received: ${data}`);
+// Connect to DB and start server
+connectDB(MONGO_URI).then(() => {
+    httpServer.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
     });
-
-    socket.on("disconnect", () => {
-        console.log(`Client disconnected: ${socket.id}`);
-    });
-});
-
-mongoose.connect(process.env.MONGO_URI as string)
-    .then(() => {
-        console.log("MongoDB connected successfully");
-    })
-    .catch((error) => {
-        console.error("Error connecting to MongoDB:", error.message);
-    });
-
-// Start HTTP server (not app.listen anymore)
-httpServer.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
 });

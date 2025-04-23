@@ -6,7 +6,7 @@ import { IMentor } from "../types";
 const mentorSchema = new Schema<IMentor>(
   {
     name: { type: String, required: true, trim: true },
-    email: { type: String, required: true, unique: true, lowercase: true },
+    email: { type: String, required: true, unique: true, lowercase: true, trim: true },
     phone: { type: String, required: true, unique: true },
     gender: { type: String, required: true },
     dateOfBirth: { type: Date, required: true },
@@ -16,7 +16,9 @@ const mentorSchema = new Schema<IMentor>(
     branch: { type: String, required: true },
     year: { type: String, required: true },
     skills: { type: [String], required: true },
-    experience: { type: String, required: true },
+    idCard:{type: String, required: true},
+    isVerified: {type: Boolean, default:false},
+    experience: { type: Number, default: 0 },
     college: { type: String, required: true },
     bio: { type: String, required: true },
     profilePicture: { type: String, required: true },

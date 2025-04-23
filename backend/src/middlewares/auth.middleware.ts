@@ -2,7 +2,7 @@ import { Response, NextFunction } from "express";
 const jwt = require("jsonwebtoken"); // Using require() for CommonJS
 import { AuthRequest } from "../types"
 
-const authenticateToken = (req: AuthRequest, res: Response, next: NextFunction) => {
+export const authenticateToken = (req: AuthRequest, res: Response, next: NextFunction) => {
     const authorizationHeader = req.headers["authorization"];
 
     if (!authorizationHeader) {
@@ -26,4 +26,3 @@ const authenticateToken = (req: AuthRequest, res: Response, next: NextFunction) 
     }
 };
 
-export default authenticateToken;

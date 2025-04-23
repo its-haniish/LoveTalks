@@ -11,7 +11,7 @@ const UserSchema = new Schema<IUser>(
         dateOfBirth: { type: Date, required: true },
         country: { type: String, required: true },
         age: { type: Number },
-        password: { type: String, required: true },
+        password: { type: String, required: true, select: false },
         wallet: {
             coinBalance: { type: Number, default: 0 },
             coinTransactionHistory: [

@@ -40,6 +40,9 @@ export interface IMentor extends Document {
     experience?: number;
     idCard: string;
     isVerified: boolean;
+    pricePerMinute: number;
+    isAvailable: boolean;
+    isOnline: boolean;
     college: string;
     bio: string;
     profilePicture: string;
@@ -60,26 +63,43 @@ export interface IMentor extends Document {
     generateToken(): Promise<string | null>;
 }
 
-export interface ISession extends Document {
+export interface IChatMessage {
+    sender: "user" | "mentor";
+    message: string;
+    timestamp?: Date;
+  }
+  
+  export interface IChatSession extends Document {
     userId: Types.ObjectId;
     mentorId: Types.ObjectId;
     startTime: Date;
     endTime?: Date;
     durationInMinutes?: number;
-    status: "pending" | "active" | "completed" | "cancelled";
-    sessionType: "call" | "chat";
-    messages?: {
-        sender: "user" | "mentor";
-        message: string;
-        timestamp: Date;
-    }[];
-    coinsSpent: number;
-    coinsEarned: number;
+    status:  "active" | "completed" ;
+    messages: IChatMessage[];
+    sessionPrice: number;
     feedback?: {
-        rating: number;
-        comment?: string;
+      rating?: number;
+      comment?: string;
     };
-}
+  }
+
+
+
+  export interface ICallSession extends Document {
+    userId: Types.ObjectId;
+    mentorId: Types.ObjectId;
+    startTime: Date;
+    endTime?: Date;
+    durationInMinutes?: number;
+    status: "active" | "completed" ;
+    sessionPrice: number;
+    feedback?: {
+      rating?: number;
+      comment?: string;
+    };
+  }
+  
 
 export interface IContentBlock {
     type: 'heading' | 'image' | 'paragraph';

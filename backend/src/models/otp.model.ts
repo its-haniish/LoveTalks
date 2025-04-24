@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import { IOtp } from "../types";
 
 const OtpSchema = new Schema<IOtp>(

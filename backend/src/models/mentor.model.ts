@@ -23,6 +23,9 @@ const mentorSchema = new Schema<IMentor>(
     bio: { type: String, required: true },
     profilePicture: { type: String, required: true },
     password: { type: String, required: true },
+    pricePerMinute: { type: Number, required: true },
+    isAvailable: { type: Boolean, default: true },
+    isOnline: { type: Boolean, default: false },
     wallet: {
       coinBalance: { type: Number, default: 0 },
       coinTransactionHistory: [

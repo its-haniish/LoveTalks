@@ -43,11 +43,32 @@ export const rightHeaderStyles = StyleSheet.create({
         justifyContent: "center",
         gap: 2,
         alignItems: "center",
-        borderColor: "skyblue",
+        borderColor: "#3366cc",
         borderWidth: 1,
         paddingVertical: 5,
         paddingHorizontal: 7,
         borderRadius: 20,
+    },
+    notificationWrapper: {
+        position: 'relative',
+        padding: 5,
+    },
+    notificationBadge: {
+        position: 'absolute',
+        right: 0,
+        top: 0,
+        backgroundColor: 'red',
+        borderRadius: 10,
+        width: 18,
+        height: 18,
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 1,
+    },
+    notificationCount: {
+        color: 'white',
+        fontSize: 10,
+        fontWeight: 'bold',
     },
 })
 

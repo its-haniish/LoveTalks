@@ -8,7 +8,7 @@ const HeaderMain = ({ navigation }: HeaderMainProps) => {
     return (
         <View style={styles.mainContainer}>
             <TouchableWithoutFeedback onPress={() => navigation.openDrawer()}>
-                <Image
+                <Image  
                     style={styles.image}
                     source={require("../../../assets/menu.png")}
                 />

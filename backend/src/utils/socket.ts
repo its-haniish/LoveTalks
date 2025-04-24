@@ -185,7 +185,7 @@ export default function socketHandler(io: Server): void {
                 console.log(`Message sent in chat session: ${message}`);
             } catch (err) {
                 console.error("Error sending message:", err);
-                socket.emit("error", "Error sending message");
+                socket.emit("chat error", {type: "SEND_MESSAGE_ERROR", message: "Error sending message"});
             }
         });
 
@@ -209,7 +209,7 @@ export default function socketHandler(io: Server): void {
                 console.log(`Call session started: ${callSession._id}`);
             } catch (err) {
                 console.error("Error starting call session:", err);
-                socket.emit("error", "Error starting call session");
+                socket.emit("error", {type: "CALL_SESSION_ERROR", message: "Error starting call session"});
             }
         });
 

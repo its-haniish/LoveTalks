@@ -30,7 +30,12 @@ export default StyleSheet.create({
         fontWeight: "bold",
         textTransform: "capitalize",
     },
-    filterBtnContainer: {
+    headingBtnsContainer: {
+        flexDirection: "row",
+        alignItems: "center",
+        gap: 10,
+    },
+    btnContainer: {
         flexDirection: "row",
         alignItems: "center",
         gap: 4,
@@ -40,7 +45,7 @@ export default StyleSheet.create({
         borderRadius: 8,
         backgroundColor: "aliceblue",
     },
-    filterbtnTxt: {
+    btnTxt: {
         color: "#000",
         fontSize: 14,
         fontWeight: "400"

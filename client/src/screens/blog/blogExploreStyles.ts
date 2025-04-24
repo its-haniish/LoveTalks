@@ -5,7 +5,7 @@ export default StyleSheet.create({
         flex: 1,
         backgroundColor: '#FFF5F7',
     },
-    
+
     pageHeadContanier: {
         padding: 20,
         backgroundColor: '#fff',
@@ -16,27 +16,27 @@ export default StyleSheet.create({
         shadowOpacity: 0.1,
         shadowRadius: 10,
     },
-    
+
     headingContainer: {
         flexDirection: 'row',
         alignItems: 'baseline',
     },
-    
+
     pageNamePinkTxt: {
         fontSize: 28,
         fontWeight: 'bold',
         color: '#FF69B4',
         marginRight: 5,
     },
-    
+
     pageNameBlueTxt: {
         fontSize: 28,
         fontWeight: 'bold',
         color: '#6495E3',
     },
-    
+
     blogScrollContainer: {
-        padding: 16,
-        paddingBottom: 100,
-    },    
+        paddingHorizontal: 16,
+        paddingTop: 10,
+    },
 });

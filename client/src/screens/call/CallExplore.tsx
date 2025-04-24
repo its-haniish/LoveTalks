@@ -2,6 +2,7 @@ import React, { useMemo, useState, useCallback, useRef } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, TouchableWithoutFeedback } from "react-native";
 import RadioGroup from 'react-native-radio-buttons-group';
 import FontAwesome6 from "react-native-vector-icons/FontAwesome6";
+import Octicons from "react-native-vector-icons/Octicons";
 import styles from "./callExploreStyles";
 import { Divider, MentorCard, PosterCrousel } from "../../components";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -96,12 +97,20 @@ const CallExplore = () => {
                                 <Text style={styles.appNamePinkTxt}>Love</Text>
                                 <Text style={styles.appNameBlueTxt}>Calls</Text>
                             </View>
-                            <TouchableOpacity onPress={openBottomSheet}>
-                                <View style={styles.filterBtnContainer}>
-                                    <FontAwesome6 name="sliders" size={14} color="black" />
-                                    <Text style={styles.filterbtnTxt}>Filters</Text>
-                                </View>
-                            </TouchableOpacity>
+                            <View style={styles.headingBtnsContainer}>
+                                <TouchableOpacity onPress={openBottomSheet}>
+                                    <View style={styles.btnContainer}>
+                                        <FontAwesome6 name="sliders" size={14} color="black" />
+                                        <Text style={styles.btnTxt}>Filters</Text>
+                                    </View>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={openBottomSheet}>
+                                    <View style={styles.btnContainer}>
+                                        <Octicons name="history" size={14} color="black" />
+                                        <Text style={styles.btnTxt}>History</Text>
+                                    </View>
+                                </TouchableOpacity>
+                            </View>
                         </View>
 
                         <Divider />

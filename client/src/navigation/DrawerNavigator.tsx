@@ -5,13 +5,12 @@ import {
     DrawerItemList,
 } from "@react-navigation/drawer";
 import { View, Text, StyleSheet } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { useFonts, DancingScript_400Regular } from '@expo-google-fonts/dancing-script';
 
 // Screens & Navigators
 import BottomTabNavigator from "./BottomTabNavigator";
-import { NotificationScreen, ProfileScreen } from "../screens";
-import HistoryScreen from "../screens/history/HistoryScreen";
+import { ProfileScreen, SupportScreen } from "../screens";
 
 // Custom Header Components
 import { HeaderMain, RightHeader } from "../components";
@@ -92,12 +91,12 @@ const MainDrawerNavigator = () => {
 
             {/* History Screen */}
             <Drawer.Screen
-                name="History"
-                component={HistoryScreen}
+                name="Support"
+                component={SupportScreen}
                 options={{
-                    title: "History",
+                    title: "Support",
                     drawerIcon: ({ color, size }) => (
-                        <Ionicons name="time" size={size} color={color} />
+                        <MaterialIcons name="support-agent" size={size} color={color} />
                     ),
                 }}
             />
@@ -134,7 +133,7 @@ const styles = StyleSheet.create({
     },
     divider: {
         height: 1,
-        width:"100%",
+        width: "100%",
         backgroundColor: '#ccc',
         marginBottom: 10,
     },

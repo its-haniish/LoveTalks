@@ -50,25 +50,24 @@ export const rightHeaderStyles = StyleSheet.create({
         borderRadius: 20,
     },
     notificationWrapper: {
-        position: 'relative',
-        padding: 5,
+        position: 'relative'
     },
     notificationBadge: {
         position: 'absolute',
-        right: 0,
-        top: 0,
+        right: -5,
+        top: -5,
         backgroundColor: 'red',
         borderRadius: 10,
-        width: 18,
-        height: 18,
+        width: 19,
+        height: 19,
         justifyContent: 'center',
         alignItems: 'center',
         zIndex: 1,
     },
     notificationCount: {
         color: 'white',
-        fontSize: 10,
-        fontWeight: 'bold',
+        fontSize: 12,
+        fontWeight: '600',
     },
 })
 

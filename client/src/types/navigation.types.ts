@@ -10,7 +10,8 @@ export type RootStackParamList = {
     Profile: undefined;
     Call: undefined;
     Blogs: undefined;
-
+    Notification: undefined;
+    History: undefined;
 };
 
 // Define a type for stack navigation props

@@ -24,12 +24,14 @@ const RightHeader = () => {
                     </View>
                 </View>
             </TouchableWithoutFeedback>
-            {/* Support container - Navigates to Support Page */}
-            <TouchableWithoutFeedback onPress={() => navigation.navigate("Support")}>
-                <Image
-                    source={require("../../../assets/support.png")}
-                    style={styles.image}
-                />
+            {/* Notification container - Navigates to Notification Page */}
+            <TouchableWithoutFeedback onPress={() => navigation.navigate("Notification")}>
+                <View style={styles.notificationWrapper}>
+                    <Ionicons name="notifications-outline" size={30} color="black" />
+                    <View style={styles.notificationBadge}>
+                        <Text style={styles.notificationCount}>9+</Text>
+                    </View>
+                </View>
             </TouchableWithoutFeedback>
 
         </View>

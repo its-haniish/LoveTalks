@@ -16,8 +16,7 @@ export interface IUser extends Document {
             coins: number;
             date: Date;
             type: "earned" | "spent" | "purchased";
-            transactionId?: string;
-            isCompleted?: boolean;
+            sessionId?: string;
             description?: string;
         }[];
     };
@@ -54,8 +53,7 @@ export interface IMentor extends Document {
             coins: number;
             date: Date;
             type: "earned" | "withdrawn";
-            transactionId?: string;
-            isCompleted?: boolean;
+            sessionId?: string;
             description?: string;
         }[];
     };
@@ -67,39 +65,39 @@ export interface IChatMessage {
     sender: "user" | "mentor";
     message: string;
     timestamp?: Date;
-  }
-  
-  export interface IChatSession extends Document {
+}
+
+export interface IChatSession extends Document {
     userId: Types.ObjectId;
     mentorId: Types.ObjectId;
     startTime: Date;
     endTime?: Date;
     durationInMinutes?: number;
-    status:  "active" | "completed" ;
+    status: "active" | "completed";
     messages: IChatMessage[];
     sessionPrice: number;
     feedback?: {
-      rating?: number;
-      comment?: string;
+        rating?: number;
+        comment?: string;
     };
-  }
+}
 
 
 
-  export interface ICallSession extends Document {
+export interface ICallSession extends Document {
     userId: Types.ObjectId;
     mentorId: Types.ObjectId;
     startTime: Date;
     endTime?: Date;
     durationInMinutes?: number;
-    status: "active" | "completed" ;
+    status: "active" | "completed";
     sessionPrice: number;
     feedback?: {
-      rating?: number;
-      comment?: string;
+        rating?: number;
+        comment?: string;
     };
-  }
-  
+}
+
 
 export interface IContentBlock {
     type: 'heading' | 'image' | 'paragraph';

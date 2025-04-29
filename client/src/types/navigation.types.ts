@@ -12,6 +12,7 @@ export type RootStackParamList = {
     Blogs: undefined;
     Notification: undefined;
     History: undefined;
+    MentorProfile: undefined;
 };
 
 // Define a type for stack navigation props

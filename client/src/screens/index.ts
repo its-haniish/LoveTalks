@@ -7,3 +7,4 @@ export { default as BlogExplore } from "./blog/BlogExplore"
 export { default as WalletScreen } from "./wallet/WalletScreen";
 export { default as SupportScreen } from "./support/SupportScreen";
 export { default as NotificationScreen } from "./notifications/NotificationScreen";
+export { default as MentorProfileScreen } from "./mentor/MentorProfileScreen";

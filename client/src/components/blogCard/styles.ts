@@ -12,7 +12,7 @@ export default StyleSheet.create({
         shadowRadius: 4,
         elevation: 4,
     },
-    
+
     headAndImgContainer: {
         marginBottom: 10,
     },
@@ -29,16 +29,10 @@ export default StyleSheet.create({
     },
 
     title: {
-        fontSize: 18,
-        fontWeight: '600',
+        fontSize: 14,
+        fontWeight: '500',
         marginTop: 10,
         color: '#333',
-    },
-
-    para: {
-        fontSize: 14,
-        marginVertical: 8,
-        color: '#555',
     },
 
     readMore: {

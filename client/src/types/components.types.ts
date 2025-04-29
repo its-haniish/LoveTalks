@@ -57,6 +57,11 @@ export type RoundBtnWithIconProps = {
 
 // expert card props
 export type MentorCardProps = {
-    type: "call" | "chat";
+    type?: "call" | "chat";
+    id: number;
+    price: number;
+    name: string;
+    image: any;
+
 };
 

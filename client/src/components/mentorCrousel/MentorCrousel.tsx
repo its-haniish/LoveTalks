@@ -19,6 +19,7 @@ const MentorCrousel = ({ mentorCardsData }: MentorCrouselProps) => {
                 {mentorCardsData.map((mentor) => (
 
                     <MentorCard
+                        id={mentor.id}
                         image={mentor.image}
                         name={mentor.name}
                         price={mentor.price}
@@ -30,7 +31,7 @@ const MentorCrousel = ({ mentorCardsData }: MentorCrouselProps) => {
     )
 };
 
-const MentorCard = ({ image, name, price }: MentorCardProps) => {
+const MentorCard = ({ image, name, price, id }: MentorCardProps) => {
     return (
         <View>
             <View>

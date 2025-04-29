@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import DrawerNavigator from "./DrawerNavigator";
-import { NotificationScreen, WalletScreen } from "../screens";
+import { NotificationScreen, WalletScreen, MentorProfileScreen } from "../screens";
 
 const Stack = createStackNavigator();
 
@@ -33,6 +33,19 @@ const MainStackNavigator = () => {
                     },
                 }}
             />
+            <Stack.Screen name="MentorProfile" component={MentorProfileScreen}
+                options={{
+                    title: "Mentor Profile",
+                    headerStyle: {
+                        backgroundColor: "#f4511e"
+                    },
+                    headerTintColor: "#fff",
+                    headerTitleStyle: {
+                        fontWeight: "bold",
+                    }
+                }}
+            />
+
 
         </Stack.Navigator>
     );

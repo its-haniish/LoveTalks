@@ -7,7 +7,8 @@ export default StyleSheet.create({
     },
 
     pageHeadContanier: {
-        padding: 20,
+        paddingHorizontal: 20,
+        paddingBottom: 10,
         backgroundColor: '#fff',
         borderBottomWidth: 1,
         borderBottomColor: '#eee',
@@ -23,16 +24,14 @@ export default StyleSheet.create({
     },
 
     pageNamePinkTxt: {
-        fontSize: 28,
-        fontWeight: 'bold',
-        color: '#FF69B4',
-        marginRight: 5,
+        color: "#FF007F",
+        fontSize: 20,
+        fontWeight: "bold",
     },
-
     pageNameBlueTxt: {
-        fontSize: 28,
-        fontWeight: 'bold',
-        color: '#6495E3',
+        color: "#007FFF",
+        fontSize: 20,
+        fontWeight: "bold",
     },
 
     blogScrollContainer: {

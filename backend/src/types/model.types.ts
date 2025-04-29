@@ -107,6 +107,7 @@ export interface IContentBlock {
 export interface IBlogPostInput {
     title: string;
     slug: string;
+    featuredImage: string;
     content: IContentBlock[];
 }
 

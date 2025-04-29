@@ -21,6 +21,10 @@ const blogPostSchema = new Schema<IBlogPost>(
             required: true,
             unique: true
         },
+        featuredImage: {
+            type: String,
+            required: true,
+        },
         content: {
             type: [contentBlockSchema],
             required: true,

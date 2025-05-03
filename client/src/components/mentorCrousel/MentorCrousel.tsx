@@ -40,7 +40,7 @@ const MentorCard = ({ image, name, price, id }: MentorCardProps) => {
                     <Text style={styles.mentorName}>{name}</Text>
                     <Text style={styles.mentorPrice}>{`₹${price}/min`}</Text>
                     <TouchableWithoutFeedback>
-                        <View style={styles.chatButton}>
+                        <View style={styles.chatButton} >
                             <Text style={styles.chatButtonText}>Chat</Text>
                         </View>
                     </TouchableWithoutFeedback>

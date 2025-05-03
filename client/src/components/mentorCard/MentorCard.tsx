@@ -2,13 +2,15 @@ import React from 'react'
 import { Text, View, Image, TouchableOpacity } from 'react-native'
 import styles from './styles'
 import Foundation from "react-native-vector-icons/Foundation";
-import { MentorCardProps } from "../../types"
+import { MentorCardProps, NavigationProp } from "../../types"
+import { useNavigation } from '@react-navigation/native';
 
 const MentorCard = ({ type }: MentorCardProps) => {
+    const navigation = useNavigation<NavigationProp>();
     const defaultPic = require('../../../assets/default.png');
 
     return (
-        <TouchableOpacity style={styles.cardMainContainer}>
+        <TouchableOpacity style={styles.cardMainContainer} onPress={() => navigation.navigate('MentorProfile')}>
             {/* left container  */}
             <View style={styles.leftContainer}>
                 <Image source={defaultPic} style={styles.mentorImage} />
